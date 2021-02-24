@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		55329A0D25DF37D000B711B3 /* CoctailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */; };
+		55E4C95725E40AD900206A7F /* DefaultCoctailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C95625E40AD900206A7F /* DefaultCoctailRepository.swift */; };
+		55E4C96325E4157A00206A7F /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C96225E4157A00206A7F /* APIEndpoints.swift */; };
+		55E4C96E25E416B600206A7F /* APIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C96D25E416B600206A7F /* APIUtils.swift */; };
+		55E4C97625E4314300206A7F /* ServiceConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C97525E4314300206A7F /* ServiceConfigurable.swift */; };
+		55E4C97B25E440FF00206A7F /* CoctailResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C97A25E440FF00206A7F /* CoctailResponseDTO.swift */; };
+		55E4C98B25E5969500206A7F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C98A25E5969500206A7F /* NetworkService.swift */; };
 		AB4F685E25DD79A500C46030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F685D25DD79A500C46030 /* AppDelegate.swift */; };
 		AB4F686025DD79A500C46030 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F685F25DD79A500C46030 /* SceneDelegate.swift */; };
 		AB4F686225DD79A500C46030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F686125DD79A500C46030 /* ViewController.swift */; };
@@ -39,6 +45,12 @@
 
 /* Begin PBXFileReference section */
 		55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailsRepository.swift; sourceTree = "<group>"; };
+		55E4C95625E40AD900206A7F /* DefaultCoctailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoctailRepository.swift; sourceTree = "<group>"; };
+		55E4C96225E4157A00206A7F /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		55E4C96D25E416B600206A7F /* APIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtils.swift; sourceTree = "<group>"; };
+		55E4C97525E4314300206A7F /* ServiceConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfigurable.swift; sourceTree = "<group>"; };
+		55E4C97A25E440FF00206A7F /* CoctailResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailResponseDTO.swift; sourceTree = "<group>"; };
+		55E4C98A25E5969500206A7F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		AB4F685A25DD79A500C46030 /* CleanMVVMExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanMVVMExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4F685D25DD79A500C46030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB4F685F25DD79A500C46030 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +100,34 @@
 				55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		55E4C95525E40A9E00206A7F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				55E4C95625E40AD900206A7F /* DefaultCoctailRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		55E4C95E25E40C1A00206A7F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				55E4C96D25E416B600206A7F /* APIUtils.swift */,
+				55E4C96225E4157A00206A7F /* APIEndpoints.swift */,
+				55E4C97525E4314300206A7F /* ServiceConfigurable.swift */,
+				55E4C98A25E5969500206A7F /* NetworkService.swift */,
+				55E4C96025E40C3100206A7F /* DataMapping */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		55E4C96025E40C3100206A7F /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				55E4C97A25E440FF00206A7F /* CoctailResponseDTO.swift */,
+			);
+			path = DataMapping;
 			sourceTree = "<group>";
 		};
 		AB4F685125DD79A500C46030 = {
@@ -196,6 +236,8 @@
 		AB4F689725DDAE8400C46030 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				55E4C95525E40A9E00206A7F /* Repository */,
+				55E4C95E25E40C1A00206A7F /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -339,12 +381,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E4C95725E40AD900206A7F /* DefaultCoctailRepository.swift in Sources */,
 				AB4F686225DD79A500C46030 /* ViewController.swift in Sources */,
 				55329A0D25DF37D000B711B3 /* CoctailsRepository.swift in Sources */,
+				55E4C96325E4157A00206A7F /* APIEndpoints.swift in Sources */,
 				AB4F685E25DD79A500C46030 /* AppDelegate.swift in Sources */,
 				AB4F686025DD79A500C46030 /* SceneDelegate.swift in Sources */,
+				55E4C97625E4314300206A7F /* ServiceConfigurable.swift in Sources */,
+				55E4C96E25E416B600206A7F /* APIUtils.swift in Sources */,
 				AB4F689F25DED6EB00C46030 /* SearchCoctailUseCase.swift in Sources */,
 				AB4F689A25DECED000C46030 /* Coctail.swift in Sources */,
+				55E4C98B25E5969500206A7F /* NetworkService.swift in Sources */,
+				55E4C97B25E440FF00206A7F /* CoctailResponseDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +569,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CleanMVVMExample/Info.plist;
+				INFOPLIST_FILE = CleanMVVMExample/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,7 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CleanMVVMExample/Info.plist;
+				INFOPLIST_FILE = CleanMVVMExample/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
