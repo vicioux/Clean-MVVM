@@ -9,6 +9,6 @@ import Foundation
 
 struct APIEndpoints {
     func getCoctailList() -> EndpointType {
-        return Endpoint(url: ServiceConfiguration.configuration.apiPath + "search.php")
+        return Endpoint(url: "search.php")
     }
 }

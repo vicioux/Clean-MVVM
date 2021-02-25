@@ -13,6 +13,7 @@ public protocol ServiceConfigurable {
     var apiKey: String { get }
     var apiPath: String { get }
     var basicHeaders: [String: String] { get }
+    var queryParameters: [String: String] { get }
 }
 
 extension ServiceConfigurable {
@@ -33,6 +34,10 @@ extension ServiceConfigurable {
     }
     
     public var basicHeaders: [String: String] {
+        return [:]
+    }
+    
+    public var queryParameters: [String: String] {
         return [:]
     }
 }

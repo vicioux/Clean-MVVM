@@ -34,7 +34,7 @@ public class DefaultNetworkSessionManager: NetworkSessionManager {
 
 // MARK: - Default Network Service
 public protocol NetworkService {
-
+    typealias CompletionHandler = (Result<Data?, NetworkError>) -> Void
 }
 
 public final class DefaultNetworkService {
@@ -44,4 +44,32 @@ public final class DefaultNetworkService {
         self.sessionManager = sessionManager
     }
     
+    public func request(request: URLRequest, completion: @escaping CompletionHandler) {
+        sessionManager.request(request) { data, response, requestError in
+            
+            if let requestError = requestError {
+                var error: NetworkError
+                if let response = response as? HTTPURLResponse {
+                    error = .error(statusCode: response.statusCode, data: data)
+                } else {
+                    error = self.resolve(error: requestError)
+                }
+                completion(.failure(error))
+                return
+            }
+            
+            completion(.success(data))
+        }
+    }
+    
+    private func resolve(error: Error) -> NetworkError {
+        let code = URLError.Code(rawValue: (error as NSError).code)
+        switch code {
+        case .notConnectedToInternet: return .notConnected
+        case .cancelled: return .cancelled
+        default: return .generic(error)
+        }
+    }
 }
+
+extension DefaultNetworkService: NetworkService { }
