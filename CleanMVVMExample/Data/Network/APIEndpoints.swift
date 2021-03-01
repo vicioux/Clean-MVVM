@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIEndpoints {
-    func getCoctailList() -> EndpointType {
-        return Endpoint(url: "search.php")
+    func getCoctailList(queryParameters params: [String : Any]) -> Endpoint<CoctailsResponseDTO> {
+        return Endpoint(url: "/search.php", queryParameters: params)
     }
 }

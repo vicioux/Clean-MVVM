@@ -33,6 +33,14 @@ struct CoctailResponseDTO: Decodable {
     }
 }
 
+struct CoctailsResponseDTO: Decodable {
+    let drinks: [CoctailResponseDTO]
+    
+    enum CodingKeys: String, CodingKey {
+        case drinks = "drinks"
+    }
+}
+
 //"idDrink": "16158",
 //"strDrink": "Whitecap Margarita",
 //"strDrinkAlternate": null,

@@ -28,13 +28,17 @@ public class DefaultNetworkSessionManager: NetworkSessionManager {
     public init() {}
     
     public func request(_ request: URLRequest, completion: @escaping CompletionHandler) {
-        URLSession.shared.dataTask(with: request, completionHandler: completion)
+        let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
+        task.resume()
     }
 }
 
 // MARK: - Default Network Service
 public protocol NetworkService {
     typealias CompletionHandler = (Result<Data?, NetworkError>) -> Void
+    
+    func request(endpoint: Requestable,
+                 completion: @escaping CompletionHandler)
 }
 
 public final class DefaultNetworkService {
@@ -72,4 +76,16 @@ public final class DefaultNetworkService {
     }
 }
 
-extension DefaultNetworkService: NetworkService { }
+extension DefaultNetworkService: NetworkService {
+    
+    public func request(endpoint: Requestable,
+                        completion: @escaping CompletionHandler) {
+        let config = ServiceConfiguration.configuration
+        do {
+            let urlRequest = try endpoint.urlRequest(with: config)
+            request(request: urlRequest, completion: completion)
+        } catch {
+            completion(.failure(.urlGeneration))
+        }
+    }
+}

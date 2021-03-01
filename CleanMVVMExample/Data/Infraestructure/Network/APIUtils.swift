@@ -74,28 +74,33 @@ extension Requestable {
     
 }
 
-public protocol EndpointType : Requestable {
-    
+public protocol EndpointType: ResponseRequestable {
+    associatedtype Response
 }
 
-struct Endpoint: EndpointType {
+class Endpoint<R>: EndpointType {
+    typealias Response = R
+    
     var url: String
     var method: HTTPMethodType
     var headerParamaters: [String : String]
     var queryParameters: [String : Any]
     var bodyParamaters: [String : Any]
+    var responseDecoder: ResponseDecoder
     
     init(url: String,
          method: HTTPMethodType = .get,
          headerParamaters: [String: String] = [:],
          queryParameters: [String : Any] = [:],
-         bodyParamaters: [String: Any] = [:]
+         bodyParamaters: [String: Any] = [:],
+         responseDecoder: ResponseDecoder = JSONResponseDecoder()
          ) {
         self.url = url
         self.method = method
         self.headerParamaters = headerParamaters
         self.queryParameters = queryParameters
         self.bodyParamaters = bodyParamaters
+        self.responseDecoder = responseDecoder
     }
     
 }
