@@ -10,5 +10,5 @@ import Foundation
 protocol CoctailsRepository {
     
     func fetchCoctailList(query: String,
-                          completion: @escaping (Result<[Coctail],Error>) -> Void)
+                          completion: @escaping (Result<Coctails,Error>) -> Void)
 }

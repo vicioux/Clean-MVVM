@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct Coctails: Equatable {
+    let coctails: [Coctail]
+}
+
 struct Coctail: Equatable, Identifiable {
     typealias Identifier = String
 

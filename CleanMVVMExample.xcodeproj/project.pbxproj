@@ -25,6 +25,8 @@
 		55E4C9CC25ED91D900206A7F /* CoctailResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C97A25E440FF00206A7F /* CoctailResponseDTO.swift */; };
 		55E4C9D025ED91E900206A7F /* ServiceConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C97525E4314300206A7F /* ServiceConfigurable.swift */; };
 		55E4C9D425ED91F300206A7F /* Coctail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F689925DECECF00C46030 /* Coctail.swift */; };
+		55E4C9DD25EE7AB900206A7F /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C9DC25EE7AB900206A7F /* String+Utils.swift */; };
+		55E4C9E525EE836900206A7F /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C9E425EE836900206A7F /* Array+Utils.swift */; };
 		AB4F685E25DD79A500C46030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F685D25DD79A500C46030 /* AppDelegate.swift */; };
 		AB4F686025DD79A500C46030 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F685F25DD79A500C46030 /* SceneDelegate.swift */; };
 		AB4F686225DD79A500C46030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F686125DD79A500C46030 /* ViewController.swift */; };
@@ -64,6 +66,8 @@
 		55E4C98A25E5969500206A7F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		55E4C99725E85A2D00206A7F /* DataTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransfer.swift; sourceTree = "<group>"; };
 		55E4C9AF25ED76A300206A7F /* TestDefaulCoctailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDefaulCoctailRepository.swift; sourceTree = "<group>"; };
+		55E4C9DC25EE7AB900206A7F /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		55E4C9E425EE836900206A7F /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
 		AB4F685A25DD79A500C46030 /* CleanMVVMExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanMVVMExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4F685D25DD79A500C46030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB4F685F25DD79A500C46030 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +179,15 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		55E4C9DB25EE7AA500206A7F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				55E4C9DC25EE7AB900206A7F /* String+Utils.swift */,
+				55E4C9E425EE836900206A7F /* Array+Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		AB4F685125DD79A500C46030 = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +295,7 @@
 		AB4F689725DDAE8400C46030 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				55E4C9DB25EE7AA500206A7F /* Utils */,
 				55E4C95525E40A9E00206A7F /* Repository */,
 				55E4C95E25E40C1A00206A7F /* Network */,
 				55E4C99525E858E600206A7F /* Infraestructure */,
@@ -432,6 +446,7 @@
 				AB4F686225DD79A500C46030 /* ViewController.swift in Sources */,
 				55329A0D25DF37D000B711B3 /* CoctailsRepository.swift in Sources */,
 				55E4C96325E4157A00206A7F /* APIEndpoints.swift in Sources */,
+				55E4C9E525EE836900206A7F /* Array+Utils.swift in Sources */,
 				AB4F685E25DD79A500C46030 /* AppDelegate.swift in Sources */,
 				AB4F686025DD79A500C46030 /* SceneDelegate.swift in Sources */,
 				55E4C97625E4314300206A7F /* ServiceConfigurable.swift in Sources */,
@@ -440,6 +455,7 @@
 				AB4F689A25DECED000C46030 /* Coctail.swift in Sources */,
 				55E4C98B25E5969500206A7F /* NetworkService.swift in Sources */,
 				55E4C99825E85A2D00206A7F /* DataTransfer.swift in Sources */,
+				55E4C9DD25EE7AB900206A7F /* String+Utils.swift in Sources */,
 				55E4C97B25E440FF00206A7F /* CoctailResponseDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

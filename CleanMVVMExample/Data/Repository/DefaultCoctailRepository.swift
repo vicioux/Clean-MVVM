@@ -16,15 +16,16 @@ final class DefaulCoctailRepository {
 }
 
 extension DefaulCoctailRepository: CoctailsRepository {
-    func fetchCoctailList(query: String, completion: @escaping (Result<[Coctail], Error>) -> Void) {
+    func fetchCoctailList(query: String, completion: @escaping (Result<Coctails, Error>) -> Void) {
         let request = APIEndpoints().getCoctailList(queryParameters: ["s": query])
         
         dataTransferService.request(with: request) { result in
-//            switch result {
-//            case .success(let response):
-//                completion(.success(response)
-//            case .failure(let error):
-//            }
+            switch result {
+            case .success(let response):
+                completion(.success(response.toDomain()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }

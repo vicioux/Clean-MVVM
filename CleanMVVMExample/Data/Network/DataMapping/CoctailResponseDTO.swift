@@ -7,32 +7,6 @@
 
 import Foundation
 
-//    typealias Identifier = String
-//
-//    let id: Identifier
-//    let name: String
-//    let category: String?
-//    let instructions: String?
-//    let tags: [String] = []
-//    let ingredients: [Ingredient] = []
-//    let imagePath: String?
-
-struct CoctailResponseDTO: Decodable {
-    let id: String
-    let name: String
-    let category: String
-    let instructions: String?
-    let imagePath: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "idDrink"
-        case name = "strDrink"
-        case category = "strCategory"
-        case instructions = "strInstructions"
-        case imagePath = "strDrinkThumb"
-    }
-}
-
 struct CoctailsResponseDTO: Decodable {
     let drinks: [CoctailResponseDTO]
     
@@ -41,54 +15,98 @@ struct CoctailsResponseDTO: Decodable {
     }
 }
 
-//"idDrink": "16158",
-//"strDrink": "Whitecap Margarita",
-//"strDrinkAlternate": null,
-//"strTags": null,
-//"strVideo": null,
-//"strCategory": "Other/Unknown",
-//"strIBA": null,
-//"strAlcoholic": "Alcoholic",
-//"strGlass": "Margarita/Coupette glass",
-//"strInstructions": "Place all ingredients in a blender and blend until smooth. This makes one drink.",
-//"strInstructionsES": null,
-//"strInstructionsDE": "Alle Zutaten in einen Mixer geben und mischen.",
-//"strInstructionsFR": null,
-//"strInstructionsIT": "Metti tutti gli ingredienti in un frullatore e frulla fino a che non diventa liscio.",
-//"strInstructionsZH-HANS": null,
-//"strInstructionsZH-HANT": null,
-//"strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/srpxxp1441209622.jpg",
-//"strIngredient1": "Ice",
-//"strIngredient2": "Tequila",
-//"strIngredient3": "Cream of coconut",
-//"strIngredient4": "Lime juice",
-//"strIngredient5": null,
-//"strIngredient6": null,
-//"strIngredient7": null,
-//"strIngredient8": null,
-//"strIngredient9": null,
-//"strIngredient10": null,
-//"strIngredient11": null,
-//"strIngredient12": null,
-//"strIngredient13": null,
-//"strIngredient14": null,
-//"strIngredient15": null,
-//"strMeasure1": "1 cup ",
-//"strMeasure2": "2 oz ",
-//"strMeasure3": "1/4 cup ",
-//"strMeasure4": "3 tblsp fresh ",
-//"strMeasure5": null,
-//"strMeasure6": null,
-//"strMeasure7": null,
-//"strMeasure8": null,
-//"strMeasure9": null,
-//"strMeasure10": null,
-//"strMeasure11": null,
-//"strMeasure12": null,
-//"strMeasure13": null,
-//"strMeasure14": null,
-//"strMeasure15": null,
-//"strImageSource": null,
-//"strImageAttribution": null,
-//"strCreativeCommonsConfirmed": "No",
-//"dateModified": "2015-09-02 17:00:22"
+struct CoctailResponseDTO: Decodable {
+    let id: String
+    let name: String
+    let category: String
+    let instructions: String?
+    let imagePath: String?
+    let ingredients: [IngredientDTO]
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "idDrink"
+        case name = "strDrink"
+        case category = "strCategory"
+        case instructions = "strInstructions"
+        case imagePath = "strDrinkThumb"
+    }
+    
+    private struct DynamicCodingKeys: CodingKey {
+        var stringValue: String
+        init?(stringValue: String) {
+            self.stringValue = stringValue
+        }
+        
+        var intValue: Int?
+        init?(intValue: Int) {
+            return nil
+        }
+    }
+    
+    init(from decoder: Decoder) throws {
+        let dynamicContainer = try decoder.container(keyedBy: DynamicCodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decode(String.self, forKey: CodingKeys.id)
+        self.name = try container.decode(String.self, forKey: CodingKeys.name)
+        self.category = try container.decode(String.self, forKey: CodingKeys.category)
+        self.instructions = try container.decode(String.self, forKey: CodingKeys.instructions)
+        self.imagePath = try container.decode(String.self, forKey: CodingKeys.imagePath)
+        
+        var ingredients: [String] = []
+        var measures: [String] = []
+        var ingredientList: [IngredientDTO] = []
+        
+        for key in dynamicContainer.allKeys where key.stringValue.contains(find: "strIngredient")
+            || key.stringValue.contains(find:"strMeasure") {
+            
+            if key.stringValue.contains(find: "strIngredient"),
+               let ingredient
+                = try dynamicContainer.decodeIfPresent(String.self, forKey: DynamicCodingKeys(stringValue: key.stringValue)!) {
+                ingredients.append(ingredient)
+            }
+            
+            if key.stringValue.contains(find: "strMeasure"),
+               let measure
+                = try dynamicContainer.decodeIfPresent(String.self, forKey: DynamicCodingKeys(stringValue: key.stringValue)!) {
+                measures.append(measure)
+            }
+        }
+        
+        for (index, value) in ingredients.enumerated() {
+            let measure = measures.item(at: index) ?? ""
+            ingredientList.append(IngredientDTO(name: value, measure: measure))
+        }
+        
+        self.ingredients = ingredientList
+    }
+}
+
+struct IngredientDTO: Decodable {
+    let name: String
+    let measure: String?
+}
+
+extension CoctailsResponseDTO {
+    func toDomain() -> Coctails {
+        return .init(coctails: drinks.map { $0.toDomain() })
+    }
+}
+
+extension CoctailResponseDTO {
+    func toDomain() -> Coctail {
+        return .init(id: Coctail.Identifier(id),
+                     name: name,
+                     category: category,
+                     instructions: instructions,
+                     imagePath: imagePath)
+    }
+}
+
+extension IngredientDTO {
+    func toDomain() -> Ingredient {
+        return .init(name: name,
+                     measure: measure)
+    }
+}
+
