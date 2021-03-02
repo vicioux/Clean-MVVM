@@ -9,7 +9,7 @@ import Foundation
 
 protocol SearchCoctailsUseCase {
     func execute(requestValue: SearchCoctailUseCaseRequest,
-                 completion: @escaping (Result<[Coctail], Error>) -> Void)
+                 completion: @escaping (Result<Coctails, Error>) -> Void)
 }
 
 final class DefaultSearchCoctailsUseCase: SearchCoctailsUseCase {
@@ -21,7 +21,7 @@ final class DefaultSearchCoctailsUseCase: SearchCoctailsUseCase {
     }
     
     func execute(requestValue: SearchCoctailUseCaseRequest,
-                 completion: @escaping (Result<[Coctail], Error>) -> Void) {
+                 completion: @escaping (Result<Coctails, Error>) -> Void) {
         
         coctailRepository.fetchCoctailList(query: requestValue.query) { result in
             completion(result)

@@ -27,6 +27,8 @@
 		55E4C9D425ED91F300206A7F /* Coctail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F689925DECECF00C46030 /* Coctail.swift */; };
 		55E4C9DD25EE7AB900206A7F /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C9DC25EE7AB900206A7F /* String+Utils.swift */; };
 		55E4C9E525EE836900206A7F /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C9E425EE836900206A7F /* Array+Utils.swift */; };
+		55E4C9EC25EE870000206A7F /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C9DC25EE7AB900206A7F /* String+Utils.swift */; };
+		55E4C9F025EE870900206A7F /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C9E425EE836900206A7F /* Array+Utils.swift */; };
 		AB4F685E25DD79A500C46030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F685D25DD79A500C46030 /* AppDelegate.swift */; };
 		AB4F686025DD79A500C46030 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F685F25DD79A500C46030 /* SceneDelegate.swift */; };
 		AB4F686225DD79A500C46030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F686125DD79A500C46030 /* ViewController.swift */; };
@@ -468,10 +470,12 @@
 				55E4C9C425ED89DE00206A7F /* APIEndpoints.swift in Sources */,
 				55E4C9B825ED860400206A7F /* CoctailsRepository.swift in Sources */,
 				55E4C9D425ED91F300206A7F /* Coctail.swift in Sources */,
+				55E4C9F025EE870900206A7F /* Array+Utils.swift in Sources */,
 				55E4C9BC25ED867900206A7F /* DataTransfer.swift in Sources */,
 				55E4C9C825ED91C300206A7F /* APIUtils.swift in Sources */,
 				AB4F687525DD79A900C46030 /* CleanMVVMExampleTests.swift in Sources */,
 				55E4C9D025ED91E900206A7F /* ServiceConfigurable.swift in Sources */,
+				55E4C9EC25EE870000206A7F /* String+Utils.swift in Sources */,
 				55E4C9C025ED87FC00206A7F /* NetworkService.swift in Sources */,
 				55E4C9CC25ED91D900206A7F /* CoctailResponseDTO.swift in Sources */,
 				55E4C9B425ED85EF00206A7F /* DefaultCoctailRepository.swift in Sources */,
