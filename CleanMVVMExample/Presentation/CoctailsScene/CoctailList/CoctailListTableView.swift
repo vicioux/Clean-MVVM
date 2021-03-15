@@ -42,6 +42,7 @@ extension CoctailListTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CoctailListTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CoctailListTableViewCell
+        cell.textLabel?.text = viewModel.items.value[indexPath.row].name
         return cell
     }
 }
