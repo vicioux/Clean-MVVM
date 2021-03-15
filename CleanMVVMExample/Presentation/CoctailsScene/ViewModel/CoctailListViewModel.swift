@@ -28,8 +28,8 @@ final class DefaultCoctailListViewModel: CoctailListViewModel {
         self.searchCoctailsUseCase = searchCoctailsUseCase
     }
     
-    private func load() {
-        searchCoctailsUseCase.execute(requestValue: .init(query: "margarita")) { result in
+    private func load(query: String) {
+        searchCoctailsUseCase.execute(requestValue: .init(query: query)) { result in
             switch result {
             case .success(let data):
                 self.appendItems(data)
@@ -57,6 +57,6 @@ final class DefaultCoctailListViewModel: CoctailListViewModel {
 
 extension DefaultCoctailListViewModel {
     func didSearch(query: String) {
-        self.load()
+        self.load(query: query)
     }
 }

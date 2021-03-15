@@ -16,6 +16,9 @@
 		55BD67B225FFFA2300E55754 /* CoctailListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD67B125FFFA2300E55754 /* CoctailListTableView.swift */; };
 		55BD67B725FFFA4700E55754 /* CoctailListTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BD67B625FFFA4700E55754 /* CoctailListTableView.xib */; };
 		55BD67BC25FFFCA500E55754 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD67BB25FFFCA500E55754 /* UIView+Constraints.swift */; };
+		55BD67C2260003E900E55754 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD67C1260003E900E55754 /* UITableView+Utils.swift */; };
+		55BD67CA2600073500E55754 /* CoctailListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD67C92600073500E55754 /* CoctailListTableViewCell.swift */; };
+		55BD67CF2600076800E55754 /* CoctailListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BD67CE2600076800E55754 /* CoctailListTableViewCell.xib */; };
 		55E4C95725E40AD900206A7F /* DefaultCoctailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C95625E40AD900206A7F /* DefaultCoctailRepository.swift */; };
 		55E4C96325E4157A00206A7F /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C96225E4157A00206A7F /* APIEndpoints.swift */; };
 		55E4C96E25E416B600206A7F /* APIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C96D25E416B600206A7F /* APIUtils.swift */; };
@@ -86,6 +89,9 @@
 		55BD67B125FFFA2300E55754 /* CoctailListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListTableView.swift; sourceTree = "<group>"; };
 		55BD67B625FFFA4700E55754 /* CoctailListTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailListTableView.xib; sourceTree = "<group>"; };
 		55BD67BB25FFFCA500E55754 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		55BD67C1260003E900E55754 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
+		55BD67C92600073500E55754 /* CoctailListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListTableViewCell.swift; sourceTree = "<group>"; };
+		55BD67CE2600076800E55754 /* CoctailListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailListTableViewCell.xib; sourceTree = "<group>"; };
 		55E4C95625E40AD900206A7F /* DefaultCoctailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoctailRepository.swift; sourceTree = "<group>"; };
 		55E4C96225E4157A00206A7F /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		55E4C96D25E416B600206A7F /* APIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtils.swift; sourceTree = "<group>"; };
@@ -159,6 +165,15 @@
 				55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		55BD67C0260003B600E55754 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				55BD67C92600073500E55754 /* CoctailListTableViewCell.swift */,
+				55BD67CE2600076800E55754 /* CoctailListTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		55E4C95525E40A9E00206A7F /* Repository */ = {
@@ -246,6 +261,7 @@
 				55E4CA0225EE983700206A7F /* Observable.swift */,
 				55BD67AC25FFF88900E55754 /* UIView+NibLoadableView.swift */,
 				55BD67BB25FFFCA500E55754 /* UIView+Constraints.swift */,
+				55BD67C1260003E900E55754 /* UITableView+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -263,6 +279,7 @@
 		55E4CA2A25EEEA7C00206A7F /* CoctailList */ = {
 			isa = PBXGroup;
 			children = (
+				55BD67C0260003B600E55754 /* Cells */,
 				55E4CA1125EE9FF200206A7F /* CoctailListViewController.swift */,
 				550B571625F2CAE30024AF76 /* CoctailListViewController.xib */,
 				55BD67B125FFFA2300E55754 /* CoctailListTableView.swift */,
@@ -512,6 +529,7 @@
 				550B571725F2CAE30024AF76 /* CoctailListViewController.xib in Resources */,
 				55BD67B725FFFA4700E55754 /* CoctailListTableView.xib in Resources */,
 				AB4F686A25DD79A800C46030 /* LaunchScreen.storyboard in Resources */,
+				55BD67CF2600076800E55754 /* CoctailListTableViewCell.xib in Resources */,
 				AB4F686725DD79A800C46030 /* Assets.xcassets in Resources */,
 				AB4F686525DD79A500C46030 /* Main.storyboard in Resources */,
 			);
@@ -557,10 +575,12 @@
 				55E4C97625E4314300206A7F /* ServiceConfigurable.swift in Sources */,
 				55E4C96E25E416B600206A7F /* APIUtils.swift in Sources */,
 				AB4F689F25DED6EB00C46030 /* SearchCoctailUseCase.swift in Sources */,
+				55BD67CA2600073500E55754 /* CoctailListTableViewCell.swift in Sources */,
 				AB4F689A25DECED000C46030 /* Coctail.swift in Sources */,
 				55E4C98B25E5969500206A7F /* NetworkService.swift in Sources */,
 				550B570725F2C60F0024AF76 /* CoctailListViewModel.swift in Sources */,
 				55E4C99825E85A2D00206A7F /* DataTransfer.swift in Sources */,
+				55BD67C2260003E900E55754 /* UITableView+Utils.swift in Sources */,
 				55E4C9DD25EE7AB900206A7F /* String+Utils.swift in Sources */,
 				55BD67B225FFFA2300E55754 /* CoctailListTableView.swift in Sources */,
 				55E4C97B25E440FF00206A7F /* CoctailResponseDTO.swift in Sources */,
