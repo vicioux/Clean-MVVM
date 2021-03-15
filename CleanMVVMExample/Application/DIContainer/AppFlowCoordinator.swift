@@ -20,7 +20,7 @@ final class AppFlowCoordinator {
     
     func start() {
         let moviesSceneDIContainer = appDIContainer.makeCoctailSceneDIContainer()
-        let flow = moviesSceneDIContainer.makeMoviesSerachGlowCoordinator(navigationController: navigationController)
+        let flow = moviesSceneDIContainer.makeCoctailSearchFlowCoordinator(navigationController: navigationController)
         flow.start()
     }
 }

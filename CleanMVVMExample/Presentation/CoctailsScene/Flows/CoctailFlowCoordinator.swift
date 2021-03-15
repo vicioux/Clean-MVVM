@@ -10,15 +10,17 @@ import UIKit
 class CoctailFlowCoordinator {
     
     private weak var navigationController: UINavigationController?
-    
     private weak var coctailListVC: CoctailListViewController?
+    private let dependencies: CoctailSearchFlowCoordinatorDependencies
     
-    init(navigationController: UINavigationController) {
+    init(dependencies: CoctailSearchFlowCoordinatorDependencies, navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.dependencies = dependencies
     }
     
     func start() {
-        let vc = CoctailListViewController(withViewModel: DefaultCoctailListViewModel())
+        let vc = dependencies.makeCoctailListViewController()
         navigationController?.pushViewController(vc, animated: false)
+        coctailListVC = vc
     }
 }

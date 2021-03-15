@@ -10,6 +10,8 @@ import Foundation
 final class AppDIContainer {
         
     func makeCoctailSceneDIContainer() -> CoctailsSceneDIContainer {
-        return CoctailsSceneDIContainer()
+        let dataTransfer = DefaultDataTransferService(with: DefaultNetworkService(sessionManager: DefaultNetworkSessionManager()),
+                                                      errorResolver: DefaultDataTransferErrorResolver())
+        return CoctailsSceneDIContainer(dataTransferService: dataTransfer)
     }
 }

@@ -10,6 +10,7 @@
 		550B56D925F144370024AF76 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550B56D825F144370024AF76 /* AppFlowCoordinator.swift */; };
 		550B570725F2C60F0024AF76 /* CoctailListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550B570625F2C60F0024AF76 /* CoctailListViewModel.swift */; };
 		550B571725F2CAE30024AF76 /* CoctailListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550B571625F2CAE30024AF76 /* CoctailListViewController.xib */; };
+		550B572825F6BF110024AF76 /* CoctailListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550B572725F6BF110024AF76 /* CoctailListItemViewModel.swift */; };
 		55329A0D25DF37D000B711B3 /* CoctailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */; };
 		55E4C95725E40AD900206A7F /* DefaultCoctailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C95625E40AD900206A7F /* DefaultCoctailRepository.swift */; };
 		55E4C96325E4157A00206A7F /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E4C96225E4157A00206A7F /* APIEndpoints.swift */; };
@@ -75,6 +76,7 @@
 		550B56D825F144370024AF76 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		550B570625F2C60F0024AF76 /* CoctailListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListViewModel.swift; sourceTree = "<group>"; };
 		550B571625F2CAE30024AF76 /* CoctailListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailListViewController.xib; sourceTree = "<group>"; };
+		550B572725F6BF110024AF76 /* CoctailListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListItemViewModel.swift; sourceTree = "<group>"; };
 		55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailsRepository.swift; sourceTree = "<group>"; };
 		55E4C95625E40AD900206A7F /* DefaultCoctailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoctailRepository.swift; sourceTree = "<group>"; };
 		55E4C96225E4157A00206A7F /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				550B570625F2C60F0024AF76 /* CoctailListViewModel.swift */,
+				550B572725F6BF110024AF76 /* CoctailListItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				55E4CA0325EE983800206A7F /* Observable.swift in Sources */,
 				55E4C95725E40AD900206A7F /* DefaultCoctailRepository.swift in Sources */,
 				AB4F686225DD79A500C46030 /* ViewController.swift in Sources */,
+				550B572825F6BF110024AF76 /* CoctailListItemViewModel.swift in Sources */,
 				55329A0D25DF37D000B711B3 /* CoctailsRepository.swift in Sources */,
 				55E4CA1225EE9FF200206A7F /* CoctailListViewController.swift in Sources */,
 				55E4C96325E4157A00206A7F /* APIEndpoints.swift in Sources */,

@@ -16,7 +16,7 @@ final class DefaultSearchCoctailsUseCase: SearchCoctailsUseCase {
     
     private let coctailRepository: CoctailsRepository
     
-    init(coctailRepository: CoctailsRepository) {
+    public init(coctailRepository: CoctailsRepository) {
         self.coctailRepository = coctailRepository
     }
     
