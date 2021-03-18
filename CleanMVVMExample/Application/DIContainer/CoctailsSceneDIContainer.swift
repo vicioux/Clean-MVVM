@@ -10,6 +10,7 @@ import UIKit
 
 protocol CoctailSearchFlowCoordinatorDependencies  {
     func makeCoctailListViewController(actions: CoctailListViewModelActionsType) -> CoctailListViewController
+    func makeCoctailDetailViewController() -> CoctailDetailsViewController
 }
 
 final class CoctailsSceneDIContainer {
@@ -43,6 +44,11 @@ final class CoctailsSceneDIContainer {
     // MARK: - Flow Coordinators
     func makeCoctailSearchFlowCoordinator(navigationController: UINavigationController) -> CoctailFlowCoordinator {
         return CoctailFlowCoordinator(dependencies: self, navigationController: navigationController)
+    }
+    
+    // MARK: - Coctail Detail View
+    func makeCoctailDetailViewController() -> CoctailDetailsViewController {
+        return CoctailDetailsViewController(withViewModel: DefaultCoctailDetailsViewModel())
     }
     
 }

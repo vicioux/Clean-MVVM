@@ -12,6 +12,9 @@
 		550B571725F2CAE30024AF76 /* CoctailListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550B571625F2CAE30024AF76 /* CoctailListViewController.xib */; };
 		550B572825F6BF110024AF76 /* CoctailListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550B572725F6BF110024AF76 /* CoctailListItemViewModel.swift */; };
 		55329A0D25DF37D000B711B3 /* CoctailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */; };
+		556E3FC42603A9E6007413D7 /* CoctailDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */; };
+		556E3FCC2603A9F5007413D7 /* CoctailDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */; };
+		556E3FD42603AC70007413D7 /* CoctailDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E3FD32603AC6F007413D7 /* CoctailDetailsViewModel.swift */; };
 		55BD67AD25FFF88900E55754 /* UIView+NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD67AC25FFF88900E55754 /* UIView+NibLoadableView.swift */; };
 		55BD67B225FFFA2300E55754 /* CoctailListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD67B125FFFA2300E55754 /* CoctailListTableView.swift */; };
 		55BD67B725FFFA4700E55754 /* CoctailListTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BD67B625FFFA4700E55754 /* CoctailListTableView.xib */; };
@@ -85,6 +88,9 @@
 		550B571625F2CAE30024AF76 /* CoctailListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailListViewController.xib; sourceTree = "<group>"; };
 		550B572725F6BF110024AF76 /* CoctailListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListItemViewModel.swift; sourceTree = "<group>"; };
 		55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailsRepository.swift; sourceTree = "<group>"; };
+		556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailDetailsViewController.xib; sourceTree = "<group>"; };
+		556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailDetailsViewController.swift; sourceTree = "<group>"; };
+		556E3FD32603AC6F007413D7 /* CoctailDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailDetailsViewModel.swift; sourceTree = "<group>"; };
 		55BD67AC25FFF88900E55754 /* UIView+NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadableView.swift"; sourceTree = "<group>"; };
 		55BD67B125FFFA2300E55754 /* CoctailListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListTableView.swift; sourceTree = "<group>"; };
 		55BD67B625FFFA4700E55754 /* CoctailListTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailListTableView.xib; sourceTree = "<group>"; };
@@ -165,6 +171,24 @@
 				55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		556E3FC12603A999007413D7 /* CoctailDetails */ = {
+			isa = PBXGroup;
+			children = (
+				556E3FC22603A9C1007413D7 /* ViewModel */,
+				556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */,
+				556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */,
+			);
+			path = CoctailDetails;
+			sourceTree = "<group>";
+		};
+		556E3FC22603A9C1007413D7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				556E3FD32603AC6F007413D7 /* CoctailDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		55BD67C0260003B600E55754 /* Cells */ = {
@@ -248,9 +272,9 @@
 		55E4C9F425EE91F300206A7F /* CoctailsScene */ = {
 			isa = PBXGroup;
 			children = (
-				550B56FF25F2861A0024AF76 /* ViewModel */,
 				55E4CA2B25EEEA8800206A7F /* Flows */,
 				55E4CA2A25EEEA7C00206A7F /* CoctailList */,
+				556E3FC12603A999007413D7 /* CoctailDetails */,
 			);
 			path = CoctailsScene;
 			sourceTree = "<group>";
@@ -279,6 +303,7 @@
 		55E4CA2A25EEEA7C00206A7F /* CoctailList */ = {
 			isa = PBXGroup;
 			children = (
+				550B56FF25F2861A0024AF76 /* ViewModel */,
 				55BD67C0260003B600E55754 /* Cells */,
 				55E4CA1125EE9FF200206A7F /* CoctailListViewController.swift */,
 				550B571625F2CAE30024AF76 /* CoctailListViewController.xib */,
@@ -528,6 +553,7 @@
 			files = (
 				550B571725F2CAE30024AF76 /* CoctailListViewController.xib in Resources */,
 				55BD67B725FFFA4700E55754 /* CoctailListTableView.xib in Resources */,
+				556E3FC42603A9E6007413D7 /* CoctailDetailsViewController.xib in Resources */,
 				AB4F686A25DD79A800C46030 /* LaunchScreen.storyboard in Resources */,
 				55BD67CF2600076800E55754 /* CoctailListTableViewCell.xib in Resources */,
 				AB4F686725DD79A800C46030 /* Assets.xcassets in Resources */,
@@ -559,6 +585,7 @@
 				55E4CA0325EE983800206A7F /* Observable.swift in Sources */,
 				55E4C95725E40AD900206A7F /* DefaultCoctailRepository.swift in Sources */,
 				AB4F686225DD79A500C46030 /* ViewController.swift in Sources */,
+				556E3FCC2603A9F5007413D7 /* CoctailDetailsViewController.swift in Sources */,
 				55BD67BC25FFFCA500E55754 /* UIView+Constraints.swift in Sources */,
 				550B572825F6BF110024AF76 /* CoctailListItemViewModel.swift in Sources */,
 				55329A0D25DF37D000B711B3 /* CoctailsRepository.swift in Sources */,
@@ -568,6 +595,7 @@
 				55E4CA2525EEE14500206A7F /* CoctailsSceneDIContainer.swift in Sources */,
 				55E4C9E525EE836900206A7F /* Array+Utils.swift in Sources */,
 				AB4F685E25DD79A500C46030 /* AppDelegate.swift in Sources */,
+				556E3FD42603AC70007413D7 /* CoctailDetailsViewModel.swift in Sources */,
 				55BD67AD25FFF88900E55754 /* UIView+NibLoadableView.swift in Sources */,
 				550B56D925F144370024AF76 /* AppFlowCoordinator.swift in Sources */,
 				55E4CA1C25EED42E00206A7F /* AppDIContainer.swift in Sources */,

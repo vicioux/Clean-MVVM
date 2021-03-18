@@ -19,16 +19,15 @@ class CoctailFlowCoordinator {
     }
     
     func start() {
-        
         let actions = CoctailListViewModelActions(showCoctailDetails: showCoctailDetails)
-        
         let vc = dependencies.makeCoctailListViewController(actions: actions)
         navigationController?.pushViewController(vc, animated: false)
         coctailListVC = vc
     }
     
     func showCoctailDetails(coctail: Coctail) {
-        print("pass here honey")
+        let vc = dependencies.makeCoctailDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
