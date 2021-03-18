@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol CoctailSearchFlowCoordinatorDependencies  {
-    func makeCoctailListViewController() -> CoctailListViewController
+    func makeCoctailListViewController(actions: CoctailListViewModelActionsType) -> CoctailListViewController
 }
 
 final class CoctailsSceneDIContainer {
@@ -21,13 +21,13 @@ final class CoctailsSceneDIContainer {
     }
     
     // MARK: - Coctail List
-    func makeCoctailListViewController() ->  CoctailListViewController {
-        CoctailListViewController(withViewModel: makeCoctailListViewModel())
+    func makeCoctailListViewController(actions: CoctailListViewModelActionsType) ->  CoctailListViewController {
+        CoctailListViewController(withViewModel: makeCoctailListViewModel(actions: actions))
     }
     
     // MARK: - ViewModel
-    func makeCoctailListViewModel() -> CoctailListViewModel {
-        return DefaultCoctailListViewModel(searchCoctailsUseCase: makeSearchCoctailUserCase())
+    func makeCoctailListViewModel(actions: CoctailListViewModelActionsType) -> CoctailListViewModel {
+        return DefaultCoctailListViewModel(searchCoctailsUseCase: makeSearchCoctailUserCase(), actions: actions)
     }
     
     // MARK: - Use Cases

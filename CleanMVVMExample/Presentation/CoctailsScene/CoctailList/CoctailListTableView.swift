@@ -32,7 +32,9 @@ class CoctailListTableView: UIView {
 }
 
 extension CoctailListTableView: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectItem(at: indexPath.row)
+    }
 }
 
 extension CoctailListTableView: UITableViewDataSource {
