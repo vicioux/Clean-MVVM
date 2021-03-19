@@ -7,14 +7,30 @@
 
 import UIKit
 
+public struct AccessibilityIdentifier {
+    static let searchField = "AccessibilityIdentifierSearchCoctails"
+}
+
+
 final class CoctailListViewController: UIViewController {
     
     private var viewModel: CoctailListViewModel!
     private var coctailTableView: CoctailListTableView!
     
+    @IBOutlet private weak var searchContainerView: UIView!
+    @IBOutlet private weak var coctailListContainer: UIView!
+    
+    private var searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupSearchController()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchController.isActive = false
     }
     
     init(withViewModel vm: CoctailListViewModel) {
@@ -28,9 +44,8 @@ final class CoctailListViewController: UIViewController {
     
     private func setup() {
         coctailTableView = CoctailListTableView.createView(CoctailListTableView.self)
-        view.addSubview(coctailTableView)
+        coctailListContainer.addSubview(coctailTableView)
         coctailTableView.pinToParent()
-        viewModel?.didSearch(query: "Margarita")
         
         // Coctail Table setup
         coctailTableView.viewModel = viewModel
@@ -38,6 +53,8 @@ final class CoctailListViewController: UIViewController {
         
         // Bind to items when they're load
         bind(to: viewModel)
+        
+        title = viewModel.screenTitle
     }
     
     private func bind(to viewModel: CoctailListViewModel) {
@@ -49,4 +66,43 @@ final class CoctailListViewController: UIViewController {
     private func updateItems() {
         coctailTableView.reload()
     }
+}
+
+// MARK: - Search View
+
+extension CoctailListViewController {
+    
+    private func setupSearchController() {
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = self.viewModel.searchBarPlaceholder
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.translatesAutoresizingMaskIntoConstraints = true
+        searchController.searchBar.barStyle = .black
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.frame = searchContainerView.bounds
+        searchController.searchBar.autoresizingMask = [.flexibleWidth]
+        searchContainerView.addSubview(searchController.searchBar)
+        definesPresentationContext = true
+        
+        if #available(iOS 13.0, *) {
+            searchController.searchBar.searchTextField.accessibilityIdentifier = AccessibilityIdentifier.searchField
+        }
+    }
+}
+
+extension CoctailListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        searchController.isActive = false
+        viewModel.didSearch(query: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("don't drop that shit")
+    }
+}
+
+extension CoctailListViewController: UISearchControllerDelegate {
+    
 }

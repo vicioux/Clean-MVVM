@@ -22,19 +22,27 @@ protocol CoctailListViewModelInput {
 
 protocol CoctailListViewModelOutput {
     var items: Observable<[CoctailListItemViewModel]> { get }
+    var screenTitle: String { get }
+    var emptyDataTitle: String { get }
+    var errorTitle: String { get }
+    var searchBarPlaceholder: String { get }
 }
 
 protocol CoctailListViewModel: CoctailListViewModelInput, CoctailListViewModelOutput {}
 
 final class DefaultCoctailListViewModel: CoctailListViewModel {
-
+    
     private let searchCoctailsUseCase: SearchCoctailsUseCase
     private let actions: CoctailListViewModelActionsType
-    
     private var coctailList: Coctails?
     
+
     // MARK: - OUTPUT
     let items: Observable<[CoctailListItemViewModel]> = Observable([])
+    var screenTitle: String = NSLocalizedString("Coctails", comment: "")
+    var emptyDataTitle: String = NSLocalizedString("Search results", comment: "")
+    var errorTitle: String = NSLocalizedString("Error", comment: "")
+    var searchBarPlaceholder: String = NSLocalizedString("Search Coctails", comment: "")
     
     // MARK: - Init
     init(searchCoctailsUseCase: SearchCoctailsUseCase, actions: CoctailListViewModelActionsType) {
