@@ -40,6 +40,8 @@ final class CoctailListViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        //self.addLoadingHUD(LoadingView.self, inView: self.view)
+        //self?.removeLoadingHUD(LoadingView.self)
     }
     
     private func setup() {
