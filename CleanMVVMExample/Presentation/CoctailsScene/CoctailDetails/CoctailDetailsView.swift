@@ -13,21 +13,33 @@ struct CoctailDetailsView: View {
     @ObservedObject var viewModelWrapper: CoctailDetailsViewModelWrapper
     
     var body: some View {
-        Text(self.viewModelWrapper.viewModel?.name ?? "")
-        
-        if #available(iOS 15.0, *) {
-             AsyncImage(url: URL(string: self.viewModelWrapper.viewModel?.imagePath ?? ""))
-        } else {
-            
+        ScrollView(.vertical) {
+            VStack(spacing: 10)  {
+                Text(self.viewModelWrapper.viewModel.name).font(.largeTitle)
+                if #available(iOS 15.0, *) {
+                    AsyncImage(url: self.viewModelWrapper.viewModel.imagePath) { image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
+                    }.scaledToFit()
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                }
+                Text(self.viewModelWrapper.viewModel.instructions)
+                    .multilineTextAlignment(.leading)
+                    .padding([.leading, .trailing], 10)
+            }
         }
     }
 }
 
 final class CoctailDetailsViewModelWrapper: ObservableObject {
-    var viewModel: CoctailDetailsViewModel?
+    var viewModel: CoctailDetailsViewModel
     @Published var coctailImage: Data?
+    var imagePath: URL {
+        return viewModel.imagePath
+    }
     
-    init(viewModel: CoctailDetailsViewModel?) {
+    init(viewModel: CoctailDetailsViewModel) {
         self.viewModel = viewModel
     }
 }
