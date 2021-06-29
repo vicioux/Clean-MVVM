@@ -22,6 +22,7 @@ protocol CoctailListViewModelInput {
 
 protocol CoctailListViewModelOutput {
     var items: Observable<[CoctailListItemViewModel]> { get }
+    var loading: Observable<Bool> { get }
     var screenTitle: String { get }
     var emptyDataTitle: String { get }
     var errorTitle: String { get }
@@ -32,6 +33,8 @@ protocol CoctailListViewModel: CoctailListViewModelInput, CoctailListViewModelOu
 
 final class DefaultCoctailListViewModel: CoctailListViewModel {
     
+    
+    
     private let searchCoctailsUseCase: SearchCoctailsUseCase
     private let actions: CoctailListViewModelActionsType
     private var coctailList: Coctails?
@@ -39,6 +42,7 @@ final class DefaultCoctailListViewModel: CoctailListViewModel {
 
     // MARK: - OUTPUT
     let items: Observable<[CoctailListItemViewModel]> = Observable([])
+    var loading: Observable<Bool> = Observable(false)
     var screenTitle: String = NSLocalizedString("Coctails", comment: "")
     var emptyDataTitle: String = NSLocalizedString("Search results", comment: "")
     var errorTitle: String = NSLocalizedString("Error", comment: "")
@@ -51,6 +55,7 @@ final class DefaultCoctailListViewModel: CoctailListViewModel {
     }
     
     private func load(query: String) {
+        self.loading.value = true
         searchCoctailsUseCase.execute(requestValue: .init(query: query)) { result in
             switch result {
             case .success(let data):
@@ -58,6 +63,7 @@ final class DefaultCoctailListViewModel: CoctailListViewModel {
             case .failure(let error):
                 self.handle(error: error)
             }
+            self.loading.value = false
         }
     }
     

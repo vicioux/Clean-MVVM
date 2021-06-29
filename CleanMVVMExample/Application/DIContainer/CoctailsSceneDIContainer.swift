@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SwiftUI
 
 
 protocol CoctailSearchFlowCoordinatorDependencies  {
     func makeCoctailListViewController(actions: CoctailListViewModelActionsType) -> CoctailListViewController
-    func makeCoctailDetailViewController() -> CoctailDetailsViewController
+    func makeCoctailDetailViewController(coctail: Coctail) -> UIViewController
 }
 
 final class CoctailsSceneDIContainer {
@@ -47,8 +48,17 @@ final class CoctailsSceneDIContainer {
     }
     
     // MARK: - Coctail Detail View
-    func makeCoctailDetailViewController() -> CoctailDetailsViewController {
-        return CoctailDetailsViewController(withViewModel: DefaultCoctailDetailsViewModel())
+    func makeCoctailDetailViewController(coctail: Coctail) -> UIViewController {
+        
+        if #available(iOS 13, *) {
+            let view = CoctailDetailsView(viewModelWrapper:
+                                            CoctailDetailsViewModelWrapper(viewModel: DefaultCoctailDetailsViewModel(coctail: coctail)))
+            return UIHostingController(rootView: view)
+        }
+        
+        return CoctailDetailsViewController(withViewModel:
+                                                DefaultCoctailDetailsViewModel(coctail: coctail))
+    
     }
     
 }

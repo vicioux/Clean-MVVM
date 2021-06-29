@@ -11,8 +11,7 @@ public struct AccessibilityIdentifier {
     static let searchField = "AccessibilityIdentifierSearchCoctails"
 }
 
-
-final class CoctailListViewController: UIViewController {
+final class CoctailListViewController: UIViewController, LoadingViewLoader {
     
     private var viewModel: CoctailListViewModel!
     private var coctailTableView: CoctailListTableView!
@@ -60,13 +59,18 @@ final class CoctailListViewController: UIViewController {
     }
     
     private func bind(to viewModel: CoctailListViewModel) {
-        viewModel.items.observe(on: self) { [weak self] _ in
-            self?.updateItems()
-        }
+        viewModel.items.observe(on: self) { [weak self] _ in self?.updateItems() }
+        viewModel.loading.observe(on: self) { [weak self] in self?.updateLoading($0) }
     }
     
     private func updateItems() {
         coctailTableView.reload()
+    }
+    
+    private func updateLoading(_ isLoading: Bool) {
+        if isLoading {
+            
+        }
     }
 }
 

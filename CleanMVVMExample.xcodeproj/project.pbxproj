@@ -22,6 +22,7 @@
 		55BD67C2260003E900E55754 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD67C1260003E900E55754 /* UITableView+Utils.swift */; };
 		55BD67CA2600073500E55754 /* CoctailListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD67C92600073500E55754 /* CoctailListTableViewCell.swift */; };
 		55BD67CF2600076800E55754 /* CoctailListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BD67CE2600076800E55754 /* CoctailListTableViewCell.xib */; };
+		55CDB231268A329D00C6DBA1 /* CoctailDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CDB230268A329D00C6DBA1 /* CoctailDetailsView.swift */; };
 		55CEEE3826123BC200134A40 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CEEE3726123BC200134A40 /* LoadingView.swift */; };
 		55CEEE4826126BD900134A40 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55CEEE4726126BD900134A40 /* LoadingView.xib */; };
 		55CEEE4D26127E2A00134A40 /* LoadingViewLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CEEE4C26127E2A00134A40 /* LoadingViewLoader.swift */; };
@@ -101,6 +102,7 @@
 		55BD67C1260003E900E55754 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
 		55BD67C92600073500E55754 /* CoctailListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListTableViewCell.swift; sourceTree = "<group>"; };
 		55BD67CE2600076800E55754 /* CoctailListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailListTableViewCell.xib; sourceTree = "<group>"; };
+		55CDB230268A329D00C6DBA1 /* CoctailDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailDetailsView.swift; sourceTree = "<group>"; };
 		55CEEE3726123BC200134A40 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		55CEEE4726126BD900134A40 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		55CEEE4C26127E2A00134A40 /* LoadingViewLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewLoader.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				556E3FC22603A9C1007413D7 /* ViewModel */,
 				556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */,
 				556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */,
+				55CDB230268A329D00C6DBA1 /* CoctailDetailsView.swift */,
 			);
 			path = CoctailDetails;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				55E4CA1225EE9FF200206A7F /* CoctailListViewController.swift in Sources */,
 				55E4C96325E4157A00206A7F /* APIEndpoints.swift in Sources */,
 				55E4CA2D25F00F4600206A7F /* CoctailFlowCoordinator.swift in Sources */,
+				55CDB231268A329D00C6DBA1 /* CoctailDetailsView.swift in Sources */,
 				55E4CA2525EEE14500206A7F /* CoctailsSceneDIContainer.swift in Sources */,
 				55E4C9E525EE836900206A7F /* Array+Utils.swift in Sources */,
 				AB4F685E25DD79A500C46030 /* AppDelegate.swift in Sources */,

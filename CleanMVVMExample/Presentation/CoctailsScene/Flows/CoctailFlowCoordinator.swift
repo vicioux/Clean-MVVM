@@ -26,7 +26,7 @@ class CoctailFlowCoordinator {
     }
     
     func showCoctailDetails(coctail: Coctail) {
-        let vc = dependencies.makeCoctailDetailViewController()
+        let vc = dependencies.makeCoctailDetailViewController(coctail: coctail)
         navigationController?.pushViewController(vc, animated: true)
     }
     
