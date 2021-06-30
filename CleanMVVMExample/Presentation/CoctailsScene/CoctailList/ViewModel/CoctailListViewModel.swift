@@ -54,17 +54,11 @@ final class DefaultCoctailListViewModel: CoctailListViewModel {
         self.actions = actions
     }
     
-    private func load(query: String) {
-        self.loading.value = true
-        searchCoctailsUseCase.execute(requestValue: .init(query: query)) { result in
-            switch result {
-            case .success(let data):
-                self.appendItems(data)
-            case .failure(let error):
-                self.handle(error: error)
-            }
-            self.loading.value = false
-        }
+    private func load(query: String) async throws {
+        loading.value = true
+        let data = try await searchCoctailsUseCase.execute(requestValue: .init(query: query))
+        appendItems(data)
+        loading.value = false
     }
     
     private func resetItems() {
@@ -88,7 +82,9 @@ final class DefaultCoctailListViewModel: CoctailListViewModel {
 extension DefaultCoctailListViewModel {
     
     func didSearch(query: String) {
-        self.load(query: query)
+        async {
+            try await self.load(query: query)
+        }
     }
     
     func didSelectItem(at: Int) {
