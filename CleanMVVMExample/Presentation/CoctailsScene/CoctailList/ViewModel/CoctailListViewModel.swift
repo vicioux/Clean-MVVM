@@ -33,8 +33,6 @@ protocol CoctailListViewModel: CoctailListViewModelInput, CoctailListViewModelOu
 
 final class DefaultCoctailListViewModel: CoctailListViewModel {
     
-    
-    
     private let searchCoctailsUseCase: SearchCoctailsUseCase
     private let actions: CoctailListViewModelActionsType
     private var coctailList: Coctails?
@@ -57,7 +55,7 @@ final class DefaultCoctailListViewModel: CoctailListViewModel {
     private func load(query: String) async throws {
         loading.value = true
         let data = try await searchCoctailsUseCase.execute(requestValue: .init(query: query))
-        appendItems(data)
+        await appendItems(data)
         loading.value = false
     }
     
@@ -66,7 +64,7 @@ final class DefaultCoctailListViewModel: CoctailListViewModel {
         coctailList = nil
     }
     
-    private func appendItems(_ coctailList: Coctails) {
+    private func appendItems(_ coctailList: Coctails) async {
         self.coctailList = coctailList
         items.value = coctailList.coctails.map(CoctailListItemViewModel.init)
     }

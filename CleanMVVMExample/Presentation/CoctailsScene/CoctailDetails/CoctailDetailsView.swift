@@ -35,6 +35,7 @@ struct CoctailDetailsView: View {
 final class CoctailDetailsViewModelWrapper: ObservableObject {
     var viewModel: CoctailDetailsViewModel
     @Published var coctailImage: Data?
+    
     var imagePath: URL {
         return viewModel.imagePath
     }

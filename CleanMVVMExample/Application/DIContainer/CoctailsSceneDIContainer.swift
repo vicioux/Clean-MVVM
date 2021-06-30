@@ -10,7 +10,7 @@ import SwiftUI
 
 
 protocol CoctailSearchFlowCoordinatorDependencies  {
-    func makeCoctailListViewController(actions: CoctailListViewModelActionsType) -> CoctailListViewController
+    func makeCoctailListViewController(actions: CoctailListViewModelActionsType) -> UIViewController
     func makeCoctailDetailViewController(coctail: Coctail) -> UIViewController
 }
 
@@ -23,8 +23,14 @@ final class CoctailsSceneDIContainer {
     }
     
     // MARK: - Coctail List
-    func makeCoctailListViewController(actions: CoctailListViewModelActionsType) ->  CoctailListViewController {
-        CoctailListViewController(withViewModel: makeCoctailListViewModel(actions: actions))
+    func makeCoctailListViewController(actions: CoctailListViewModelActionsType) -> UIViewController {
+        
+        if #available(iOS 13, *) {
+            let view = CoctailListView(viewModelWrapper: CoctailListViewModelWrapper(viewModel: makeCoctailListViewModel(actions: actions)))
+            return UIHostingController(rootView: view)
+        }
+        
+        return CoctailListViewController(withViewModel: makeCoctailListViewModel(actions: actions))
     }
     
     // MARK: - ViewModel

@@ -12,6 +12,7 @@
 		550B571725F2CAE30024AF76 /* CoctailListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550B571625F2CAE30024AF76 /* CoctailListViewController.xib */; };
 		550B572825F6BF110024AF76 /* CoctailListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550B572725F6BF110024AF76 /* CoctailListItemViewModel.swift */; };
 		55329A0D25DF37D000B711B3 /* CoctailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */; };
+		5538BAC7268CB83000BAE765 /* CoctailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538BAC6268CB83000BAE765 /* CoctailListView.swift */; };
 		556E3FC42603A9E6007413D7 /* CoctailDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */; };
 		556E3FCC2603A9F5007413D7 /* CoctailDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */; };
 		556E3FD42603AC70007413D7 /* CoctailDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E3FD32603AC6F007413D7 /* CoctailDetailsViewModel.swift */; };
@@ -92,6 +93,7 @@
 		550B571625F2CAE30024AF76 /* CoctailListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailListViewController.xib; sourceTree = "<group>"; };
 		550B572725F6BF110024AF76 /* CoctailListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListItemViewModel.swift; sourceTree = "<group>"; };
 		55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailsRepository.swift; sourceTree = "<group>"; };
+		5538BAC6268CB83000BAE765 /* CoctailListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListView.swift; sourceTree = "<group>"; };
 		556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailDetailsViewController.xib; sourceTree = "<group>"; };
 		556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailDetailsViewController.swift; sourceTree = "<group>"; };
 		556E3FD32603AC6F007413D7 /* CoctailDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +181,26 @@
 				55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		5538BAC4268CB7CA00BAE765 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				55BD67C0260003B600E55754 /* Cells */,
+				55E4CA1125EE9FF200206A7F /* CoctailListViewController.swift */,
+				550B571625F2CAE30024AF76 /* CoctailListViewController.xib */,
+				55BD67B125FFFA2300E55754 /* CoctailListTableView.swift */,
+				55BD67B625FFFA4700E55754 /* CoctailListTableView.xib */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		5538BAC5268CB7DA00BAE765 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				5538BAC6268CB83000BAE765 /* CoctailListView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		556E3FC12603A999007413D7 /* CoctailDetails */ = {
@@ -324,11 +346,8 @@
 			isa = PBXGroup;
 			children = (
 				550B56FF25F2861A0024AF76 /* ViewModel */,
-				55BD67C0260003B600E55754 /* Cells */,
-				55E4CA1125EE9FF200206A7F /* CoctailListViewController.swift */,
-				550B571625F2CAE30024AF76 /* CoctailListViewController.xib */,
-				55BD67B125FFFA2300E55754 /* CoctailListTableView.swift */,
-				55BD67B625FFFA4700E55754 /* CoctailListTableView.xib */,
+				5538BAC4268CB7CA00BAE765 /* UIKit */,
+				5538BAC5268CB7DA00BAE765 /* SwiftUI */,
 			);
 			path = CoctailList;
 			sourceTree = "<group>";
@@ -623,6 +642,7 @@
 				550B56D925F144370024AF76 /* AppFlowCoordinator.swift in Sources */,
 				55E4CA1C25EED42E00206A7F /* AppDIContainer.swift in Sources */,
 				AB4F686025DD79A500C46030 /* SceneDelegate.swift in Sources */,
+				5538BAC7268CB83000BAE765 /* CoctailListView.swift in Sources */,
 				55E4C97625E4314300206A7F /* ServiceConfigurable.swift in Sources */,
 				55E4C96E25E416B600206A7F /* APIUtils.swift in Sources */,
 				AB4F689F25DED6EB00C46030 /* SearchCoctailUseCase.swift in Sources */,

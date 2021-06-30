@@ -10,7 +10,7 @@ import UIKit
 class CoctailFlowCoordinator {
     
     private weak var navigationController: UINavigationController?
-    private weak var coctailListVC: CoctailListViewController?
+    private weak var coctailListVC: UIViewController?
     private let dependencies: CoctailSearchFlowCoordinatorDependencies
     
     init(dependencies: CoctailSearchFlowCoordinatorDependencies, navigationController: UINavigationController) {
