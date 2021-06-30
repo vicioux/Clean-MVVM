@@ -13,6 +13,10 @@ struct CoctailListItemViewModel: Equatable {
     let category: String
     let instructions: String?
     let imagePath: String?
+    
+    func getCoctail() -> Coctail {
+        return Coctail(id: id, name: name, category: category, instructions: instructions, imagePath: imagePath)
+    }
 }
 
 extension CoctailListItemViewModel {

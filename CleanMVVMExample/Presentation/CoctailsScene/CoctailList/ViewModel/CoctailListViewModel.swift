@@ -18,6 +18,7 @@ struct CoctailListViewModelActions: CoctailListViewModelActionsType {
 protocol CoctailListViewModelInput {
     func didSearch(query: String)
     func didSelectItem(at: Int)
+    func didSelect(item: CoctailListItemViewModel)
 }
 
 protocol CoctailListViewModelOutput {
@@ -90,5 +91,13 @@ extension DefaultCoctailListViewModel {
             fatalError("Can't select that coctail")
         }
         actions.showCoctailDetails(coctailList.coctails[at])
+    }
+    
+    func didSelect(item: CoctailListItemViewModel) {
+        guard let coctailList = coctailList, !coctailList.coctails.isEmpty else {
+            fatalError("Can't select that coctail")
+        }
+        
+        actions.showCoctailDetails(item.getCoctail())
     }
 }

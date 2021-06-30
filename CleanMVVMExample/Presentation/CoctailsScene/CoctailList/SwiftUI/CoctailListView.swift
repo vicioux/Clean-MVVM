@@ -16,7 +16,9 @@ struct CoctailListView: View {
     var body: some View {
         NavigationView {
             List(viewModelWrapper.coctailList) { item in
-                Text(item.name)
+                Text(item.name).onTapGesture {
+                    viewModelWrapper.viewModel.didSelect(item: item)
+                }
             }.navigationTitle("Coctails")
         }.searchable(text: $searchText)
             .onSubmit(of: .search) {
