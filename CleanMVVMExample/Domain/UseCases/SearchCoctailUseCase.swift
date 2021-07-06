@@ -7,10 +7,7 @@
 
 import Foundation
 
-protocol SearchCoctailsUseCase {
-//    func execute(requestValue: SearchCoctailUseCaseRequest,
-//                 completion: @escaping (Result<Coctails, Error>) -> Void)
-    
+protocol SearchCoctailsUseCase {    
     func execute(requestValue: SearchCoctailUseCaseRequest) async throws -> Coctails
 }
 
@@ -23,25 +20,9 @@ final class DefaultSearchCoctailsUseCase: SearchCoctailsUseCase {
     }
     
     func execute(requestValue: SearchCoctailUseCaseRequest) async throws -> Coctails {
-        await withCheckedContinuation({ continuation in
-            coctailRepository.fetchCoctailList(query: requestValue.query) { result in
-                do {
-                    let coctails = try result.get()
-                    continuation.resume(returning: coctails)
-                } catch {
-                    print("Something went wrong")
-                }
-            }
-        })
+        let coctails = try await coctailRepository.fetchCoctailList(query: requestValue.query)
+        return coctails
     }
-    
-//    func execute(requestValue: SearchCoctailUseCaseRequest,
-//                 completion: @escaping (Result<Coctails, Error>) -> Void) {
-//
-//        coctailRepository.fetchCoctailList(query: requestValue.query) { result in
-//            completion(result)
-//        }
-//    }
 }
 
 

@@ -8,7 +8,5 @@
 import Foundation
 
 protocol CoctailsRepository {
-    
-    func fetchCoctailList(query: String,
-                          completion: @escaping (Result<Coctails,Error>) -> Void)
+    func fetchCoctailList(query: String) async throws -> Coctails
 }

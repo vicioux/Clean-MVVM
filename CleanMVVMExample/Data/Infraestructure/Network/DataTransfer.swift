@@ -30,11 +30,8 @@ public protocol ResponseRequestable: Requestable {
 public protocol DataTransferService {
     typealias CompletionHandler<T> = (Result<T, DataTransferError>) -> Void
     
-    func request<T: Decodable, E: ResponseRequestable>(with endpoint: E,
-                                                       completion: @escaping CompletionHandler<T>) where E.Response == T
-    
-    func request<E: ResponseRequestable>(with endpoint: E,
-                                         completion: @escaping CompletionHandler<Void>) where E.Response == Void
+    func request<T: Decodable, E: ResponseRequestable>(with endpoint: E) async throws -> T where E.Response == T
+    func request<E: ResponseRequestable>(with endpoint: E) async throws where E.Response == Void
 }
 
 // MARK: - DataTransferErrorResolver Protocol
@@ -64,40 +61,24 @@ public final class DefaultDataTransferService {
 
 extension DefaultDataTransferService: DataTransferService {
     
-    public func request<T, E>(with endpoint: E,
-                              completion: @escaping CompletionHandler<T>) where T : Decodable, T == E.Response, E : ResponseRequestable {
-        self.networkService.request(endpoint: endpoint) { result in
-            switch result {
-            case .success(let data):
-                let result: Result<T, DataTransferError> = self.decode(data: data, decoder: endpoint.responseDecoder)
-                DispatchQueue.main.async { completion(result) }
-            case .failure(let error):
-                let error = self.resolve(networkError: error)
-                DispatchQueue.main.async { completion(.failure(error)) }
-            }
-        }
+    public func request<T: Decodable, E: ResponseRequestable>(with endpoint: E) async throws -> T where E.Response == T {
+        let result = try await self.networkService.request(endpoint: endpoint)
+        let decodeData: T = try await decode(data: result, decoder: endpoint.responseDecoder)
+        return decodeData
     }
     
-    public func request<E>(with endpoint: E, completion: @escaping CompletionHandler<Void>) where E : ResponseRequestable, E.Response == Void {
+    public func request<E: ResponseRequestable>(with endpoint: E) async throws where E.Response == Void {
+        let _ = try await self.networkService.request(endpoint: endpoint)
+    }
+    
+    private func decode<T: Decodable>(data: Data?, decoder: ResponseDecoder) async throws -> T {
+        guard let data = data else { throw DataTransferError.noResponse }
         
-        self.networkService.request(endpoint: endpoint) { result in
-            switch result {
-            case .success:
-                DispatchQueue.main.async { completion(.success(())) }
-            case .failure(let error):
-                let error = self.resolve(networkError: error)
-                DispatchQueue.main.async { completion(.failure(error)) }
-            }
-        }
-    }
-    
-    private func decode<T: Decodable>(data: Data?, decoder: ResponseDecoder) -> Result<T, DataTransferError> {
         do {
-            guard let data = data else { return .failure(.noResponse) }
             let result: T = try decoder.decode(data)
-            return .success(result)
-        } catch {
-            return .failure(.parsing(error))
+            return result
+        } catch (let error) {
+            throw DataTransferError.parsing(error)
         }
     }
     
@@ -105,7 +86,6 @@ extension DefaultDataTransferService: DataTransferService {
         let resolvedError = self.errorResolver.resolve(error: error)
         return resolvedError is NetworkError ? .networkFailure(error) : .resolvedNetworkFailure(resolvedError)
     }
-    
 }
 
 public class JSONResponseDecoder: ResponseDecoder {
