@@ -203,13 +203,29 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
+		5552909526950E0A009CC7EE /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */,
+				556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		5552909626950E1C009CC7EE /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				55CDB230268A329D00C6DBA1 /* CoctailDetailsView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		556E3FC12603A999007413D7 /* CoctailDetails */ = {
 			isa = PBXGroup;
 			children = (
 				556E3FC22603A9C1007413D7 /* ViewModel */,
-				556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */,
-				556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */,
-				55CDB230268A329D00C6DBA1 /* CoctailDetailsView.swift */,
+				5552909526950E0A009CC7EE /* UIKit */,
+				5552909626950E1C009CC7EE /* SwiftUI */,
 			);
 			path = CoctailDetails;
 			sourceTree = "<group>";

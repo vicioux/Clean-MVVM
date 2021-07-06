@@ -42,16 +42,3 @@ final class DefaultCoctailDetailsViewModel: CoctailDetailsViewModel {
         self.imagePath = url
     }
 }
-
-//@available(iOS 15.0, *)
-//extension DefaultCoctailDetailsViewModel {
-//
-//    func getImage() async throws {
-//        let (data, _) = try await URLSession.shared.data(from: URL(string: imagePath)!)
-//        self.coctailImage.value = data
-//    }
-//}
-//
-////private func bind(to viewModel: MovieDetailsViewModel) {
-////    viewModel.posterImage.observe(on: self) { [weak self] in self?.posterImageView.image = $0.flatMap(UIImage.init) }
-////}

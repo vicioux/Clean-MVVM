@@ -9,6 +9,30 @@ import SwiftUI
 
 extension CoctailListItemViewModel: Identifiable { }
 
+struct CoctailRowView: View {
+    
+    var item: CoctailListItemViewModel
+    
+    var imagePath: URL {
+        // add place holder image -_-
+        return URL(string: item.imagePath ?? "") ?? URL(fileURLWithPath: "")
+    }
+    
+    var body: some View {
+        HStack {
+            AsyncImage(url: imagePath) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }.scaledToFit()
+                .frame(width: 50, height: 50)
+        }
+        Text(item.name)
+        Spacer()
+    }
+    
+}
+
 struct CoctailListView: View {
     @ObservedObject var viewModelWrapper: CoctailListViewModelWrapper
     @State private var searchText = ""
@@ -16,7 +40,7 @@ struct CoctailListView: View {
     var body: some View {
         NavigationView {
             List(viewModelWrapper.coctailList) { item in
-                Text(item.name).onTapGesture {
+                CoctailRowView(item: item).onTapGesture {
                     viewModelWrapper.viewModel.didSelect(item: item)
                 }
             }.navigationTitle("Coctails")
