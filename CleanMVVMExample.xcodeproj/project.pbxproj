@@ -13,6 +13,7 @@
 		550B572825F6BF110024AF76 /* CoctailListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550B572725F6BF110024AF76 /* CoctailListItemViewModel.swift */; };
 		55329A0D25DF37D000B711B3 /* CoctailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */; };
 		5538BAC7268CB83000BAE765 /* CoctailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538BAC6268CB83000BAE765 /* CoctailListView.swift */; };
+		5552909826951355009CC7EE /* CoctailRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552909726951355009CC7EE /* CoctailRowView.swift */; };
 		556E3FC42603A9E6007413D7 /* CoctailDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */; };
 		556E3FCC2603A9F5007413D7 /* CoctailDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */; };
 		556E3FD42603AC70007413D7 /* CoctailDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E3FD32603AC6F007413D7 /* CoctailDetailsViewModel.swift */; };
@@ -94,6 +95,7 @@
 		550B572725F6BF110024AF76 /* CoctailListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListItemViewModel.swift; sourceTree = "<group>"; };
 		55329A0C25DF37D000B711B3 /* CoctailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailsRepository.swift; sourceTree = "<group>"; };
 		5538BAC6268CB83000BAE765 /* CoctailListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailListView.swift; sourceTree = "<group>"; };
+		5552909726951355009CC7EE /* CoctailRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailRowView.swift; sourceTree = "<group>"; };
 		556E3FC32603A9E6007413D7 /* CoctailDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailDetailsViewController.xib; sourceTree = "<group>"; };
 		556E3FCB2603A9F5007413D7 /* CoctailDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailDetailsViewController.swift; sourceTree = "<group>"; };
 		556E3FD32603AC6F007413D7 /* CoctailDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				5538BAC6268CB83000BAE765 /* CoctailListView.swift */,
+				5552909726951355009CC7EE /* CoctailRowView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				55E4CA1225EE9FF200206A7F /* CoctailListViewController.swift in Sources */,
 				55E4C96325E4157A00206A7F /* APIEndpoints.swift in Sources */,
 				55E4CA2D25F00F4600206A7F /* CoctailFlowCoordinator.swift in Sources */,
+				5552909826951355009CC7EE /* CoctailRowView.swift in Sources */,
 				55CDB231268A329D00C6DBA1 /* CoctailDetailsView.swift in Sources */,
 				55E4CA2525EEE14500206A7F /* CoctailsSceneDIContainer.swift in Sources */,
 				55E4C9E525EE836900206A7F /* Array+Utils.swift in Sources */,

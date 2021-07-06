@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol NibLoadableView: class {}
+public protocol NibLoadableView: AnyObject {}
 
 /**
  Adds a convienience initializer for views

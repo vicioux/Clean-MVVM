@@ -11,7 +11,7 @@ import UIKit
  Defines a loadin view basic functionality
  */
 
-public protocol LoadingViewType: class {
+public protocol LoadingViewType: AnyObject {
     static func addLoadingView(inView containerView: UIView?)
     static func removeLoadingView(animated anim: Bool, keepInMemory: Bool, completion: (() -> Void)?)
 }
@@ -101,6 +101,8 @@ open class LoadingView: UIView, LoadingViewType {
     }
     
     override open func layoutSubviews() {
-        frame = (UIApplication.shared.keyWindow?.frame)!
+        if #available(iOS 13, *) {
+            frame = (UIApplication.shared.keyWindow?.frame)!
+        }
     }
 }
