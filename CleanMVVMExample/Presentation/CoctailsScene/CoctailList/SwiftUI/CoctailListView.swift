@@ -44,6 +44,7 @@ struct CoctailListView: View {
                     viewModelWrapper.viewModel.didSelect(item: item)
                 }
             }.navigationTitle("Coctails")
+                .listStyle(.plain)
         }.searchable(text: $searchText)
             .onSubmit(of: .search) {
                 viewModelWrapper.viewModel.didSearch(query: searchText)
